@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assignment: Your Very Own Weather Forecast App!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('#weather').submit(function(){
+
+                var url="http://api.openweathermap.org/data/2.5/weather?q="+$('#city_name').val()+"&APPID=629b50dcb73d6b032da6999d987d834e";
+
+                alert(url);
+                $.get(url,function(weather_detail){
+                    // console.log(weather_detail)
+                    // alert(weather_detail.name+"'s weather is "+weather_detail.main.temp);   
+                    var weather_detail_html =`
+                        <h1>${weather_detail.name}</h1>
+                        Temperature:${weather_detail.main.temp}
+                        `;
+                    $('p').html(weather_detail_html);
+                },'json');
+                return false;
+
+            });
+
+        // End of document.ready-------    
+        });
+    </script>
+</head>
+<body>
+    
+<form action="#" id="weather">
+    <input id="city_name" type="text" >
+    <button type="submit">Search Weather</button>
+</form>
+
+<p>
+</p>
+
+</body>
+</html>
