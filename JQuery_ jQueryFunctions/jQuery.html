@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery Function</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+        *{
+            /* outline: 1px solid red; */
+
+        }
+        .frame {
+            width: 800px;
+            text-align: center;
+            margin:0 auto 0 auto;
+        }
+        .layout{
+            margin: 10px;
+                 /* background-color: white; */
+            border: 1px solid lightgray;
+            padding: 10px;
+           }
+        .topic{
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+            display: block;
+            /* text-decoration: underline; */
+            background-color: rgb(192, 192, 139);
+        }
+        .btn_frame{
+            margin :10px;
+            display: inline-block;
+            width: 100px;
+            vertical-align: top;
+        }
+        .layout ul{
+             padding: 0px;
+            list-style-type: none;
+            /* width: 500px; */
+            display: inline-block;
+        }
+        .result{
+            display: inline-block;
+            margin:0px;
+            font-size: 12px;
+            text-align: left;
+            width: 200px;
+            color: red;
+            vertical-align: top;    
+
+        }
+        
+        .description ,.yellow {
+            display: inline-block;
+            margin:0px;
+            font-size: 12px;
+            text-align: left;
+            width: 400px;
+        }
+        .sample{
+            background-color:red;
+            width: 140px;   
+            color: white; 
+            padding-left:5px; 
+        }
+
+         .attr_sample{
+            background-color:blue;
+            width: 140px;   
+            color: white; 
+            padding-left:5px; 
+        }
+        .yellow{
+            background-color:yellow;
+        }
+        .font-change{
+            color: blueviolet;
+            font-size: 18px;
+        }
+    </style>
+
+    <script>
+
+        $(document).ready(function(){
+            $('#click .btn').click(function(){
+                alert("Well done !"), $('#click .result').text(".click() event is done.");
+                }); 
+
+
+            $('#hide .btn').click(function(){
+                $('#hide .sample').hide()
+            });
+
+            $('#show .btn').click(function(){
+                $('#show .sample').show()
+            });
+            $('#toggle .btn').click(function(){
+                $('#toggle .sample').toggle(); 
+            });
+
+            $('#slideDown .btn').click(function(){
+                $('#slideDown .sample').slideDown(); 
+            });
+
+            $('#slideUp .btn').click(function(){
+                $('#slideUp .sample').slideUp(); 
+            });
+
+            $('#slideToggle .btn').click(function(){
+                $('#slideToggle .sample').slideToggle(); 
+            });
+            $('#fadeIn .btn').click(function(){
+                $('#fadeIn .sample').fadeIn(
+                    1000,function(){ alert('fadeIn() method is finished!');} 
+
+                ); 
+            });
+
+            $('#fadeOut .btn').click(function(){
+                $('#fadeOut .sample').fadeOut(
+                    1000,function(){ alert('fadeOut() method is finished!');}  
+                ); 
+            });
+
+            $('#addClass .btn').click( function(){
+                $("#addClass li.description").addClass("yellow");
+            });
+
+            $('#before .btn').click(function(){
+                $("#before .result").before("HAPPY");   
+            });
+
+            $('#after .btn').click(function(){
+                $("#after .result").after   ("HAPPY");   
+            });
+
+
+            $('#append .btn').click(function(){
+                $("#append .result").append("HAPPY");   
+            });
+
+            $('#html .btn').click(function(){
+                $("#html .result").html('<span class="font-change"> Done ! html code replaced in this area.</span>');   
+            });
+
+            $('#attr .btn').click(function(){;
+                $("#attr #sample").attr("class","attr_sample");
+
+            });
+            $('#val .btn').click(function(){
+                alert($('#val_input').val());
+            });
+            $('#text1 .btn').click(function(){
+                var a=$('#sample_text1').text();
+                alert(a);
+            });
+
+             $('#text2 .btn').click(function(){
+                $('#sample_text2').text("Happy Meal is coming")
+            });
+
+             $('#test .btn').click(function(){
+                $('#sample_test').css("background-color","blue");
+            });
+
+            // reset 
+            $('#show .sample').hide();
+            $('#toggle .sample').hide();
+            $('#slideDown .sample').hide(); 
+            $('#fadeIn .sample').hide(); 
+// .show
+// .toggle
+// .slideDown
+// .slideUp
+// .slideToggle
+// .fadeIn
+// .fadeOut
+// .addClass
+// .before
+// .after
+// .append
+// .html
+// .attr
+// .val
+// .text
+
+
+
+        });
+
+
+
+    </script>
+</head>
+<body>
+<div class="frame">
+    <div class="layout" id="click">
+        <div class="topic">.click</div>
+        <div  class="btn_frame"> <button class="btn">.click</button></div>
+        <ul>
+            <li class="result"><div class="sample"></div></li>
+            <li class="description"> Click the button to make something happend .</li>
+        </ul>
+    </div>
+
+    <div class="layout" id="hide">
+            <div class="topic">.hide</div> 
+            <div  class="btn_frame"> <button class="btn">.hide</button></div>
+            <ul>
+                <li class="result"><div class="sample">click the button to hide me </div></li>
+                <li class="description"> Click the button to hide RED  .</li>
+            </ul>
+    </div>
+
+
+    <div class="layout" id="show">
+            <div class="topic">.show</div> 
+            <div  class="btn_frame"> <button class="btn">.show</button></div>
+            <ul>
+                <li class="result"><div class="sample">Well done ! </div></li>
+                <li class="description"> Click the button to show something.</li>
+            </ul>
+    </div>
+
+    <div class="layout" id="toggle">
+            <div class="topic">.toggle</div> 
+            <div  class="btn_frame"> <button class="btn">.toggle</button></div>
+            <ul>
+                <li class="result"><div class="sample"> toggle done! </div></li>
+                <li class="description"> Click the button repeatly to see the result.</li>
+            </ul>
+    </div>
+
+    <div class="layout" id="slideDown">
+            <div class="topic">.slideDown</div> 
+            <div  class="btn_frame"> <button class="btn">.slideDown</button></div>
+            <ul>
+                <li class="result"><div class="sample"> slideDown ME ?!</div></li>
+                <li class="description"> Click the button to see the result of slideDown.</li>
+            </ul>
+    </div>
+
+    <div class="layout" id="slideUp">
+            <div class="topic">.slideUp</div> 
+            <div  class="btn_frame"> <button class="btn">.slideUp</button></div>
+            <ul>
+                <li class="result"><div class="sample"> slideUp ME ?!</div></li>
+                <li class="description"> Click the button to see the result of slideUp.</li>
+            </ul>
+    </div>
+    <div class="layout" id="slideToggle">
+            <div class="topic">.slideToggle</div> 
+            <div  class="btn_frame"> <button class="btn">.slideToggle</button></div>
+            <ul>
+                <li class="result"><div class="sample"> slideToggle ME ?!</div></li>
+                <li class="description"> Click the button repeatly to see the result of slideToggle.</li>
+            </ul>
+    </div>
+    <div class="layout" id="fadeIn">
+            <div class="topic">.fadeIn</div> 
+            <div  class="btn_frame"> <button class="btn">.fadeIn</button></div>
+            <ul>
+                <li class="result"><div class="sample"> fadeIn ME ?!</div></li>
+                <li class="description"> Click the button repeatly to see the result of fadeIn.
+                            <br>
+                            <span style="color: blue">
+                            <br> hints: fadeIn(1000)+function  
+                            <br> (eg:  $("p").fadeIn(1000, function(){
+                                alert("fadeIn() method is finished!");
+                            })</span>
+                </li>   
+            </ul>
+    </div>
+
+    <div class="layout" id="fadeOut">
+            <div class="topic">.fadeOut</div> 
+            <div  class="btn_frame"> <button class="btn">.fadeOut</button></div>
+            <ul>
+                <li class="result"><div class="sample"> fadeOut ME ?!</div></li>
+                <li class="description"> Click the button repeatly to see the result of fadeOut.
+                        <br>
+                        <span style="color: blue">
+                        <br> hints: fadeOut(1000)+function  
+                        <br> (eg:  $("p").fadeOut(1000, function(){
+                            alert("fadeOut() method is finished!");
+                        })</span>
+
+                </li>
+            </ul>
+    </div>
+
+
+    <div class="layout" id="addClass">
+            <div class="topic">.addClass</div> 
+            <div  class="btn_frame"> <button class="btn">.addClass</button></div>
+            <ul>
+                <li class="result"><div class="sample"> </div></li>
+                <li class="description"> Click the button to add 'yellow' class to this area.    </li>
+            </ul>
+    </div>
+
+    <div class="layout" id="before">
+            <div class="topic">.before</div> 
+            <div  class="btn_frame"> <button class="btn">.before</button></div>
+            <ul>
+                <li class="result"><div class="sample"> RED area </div></li>
+                <li class="description"> Click the button to add text 'HAPPY' before RED area.    </li>
+            </ul>
+    </div>
+    <div class="layout" id="after">
+            <div class="topic">.after</div> 
+            <div  class="btn_frame"> <button class="btn">.after</button></div>
+            <ul>
+                <li class="result"><div class="sample"> RED area </div></li>
+                <li class="description"> Click the button to add text 'HAPPY' after RED area.    </li>
+            </ul>
+    </div>
+    <div class="layout" id="append">
+            <div class="topic">.append</div> 
+            <div  class="btn_frame"> <button class="btn">.append</button></div>
+            <ul>
+                <li class="result"><div class="sample"> RED area </div></li>
+                <li class="description"> Click the button to append text 'HAPPY' to RED area.    </li>
+            </ul>
+    </div>
+
+    <div class="layout" id="html">
+            <div class="topic">.html</div> 
+            <div  class="btn_frame"> <button class="btn">.html</button></div>
+            <ul>
+                <li class="result"><div class="sample"> RED area </div></li>
+                <li class="description"> Click the button to replace some HTML code in RED area.    </li>
+            </ul>
+    </div>
+
+    <div class="layout" id="attr">
+            <div class="topic">.attr</div> 
+            <div  class="btn_frame"> <button class="btn">.attr</button></div>
+            <ul>
+                <li class="result" ><div class="sample" id="sample"> RED area </div></li>
+                <li class="description"> Click the button to change the color attribute in RED area.    </li>
+            </ul>
+    </div>
+
+    <div class="layout" id="val">
+            <div class="topic">.val</div> 
+            <div  class="btn_frame"> <button class="btn">.val</button></div>
+            <ul>
+                <li class="result" ><input id="val_input"  type="text" value="happy meal"></li>
+                <li class="description"> [.val() method: get value] - Click the button to check the value of input box using val().    </li>
+            </ul>
+    </div>
+   
+    <div class="layout" id="text1">
+            <div class="topic">.text</div> 
+            <div  class="btn_frame"> <button class="btn">.text</button></div>
+            <ul>
+                <li class="result" ><div class="sample" id="sample_text1"> RED area - happy meal later </div></li>
+                <li class="description"> [text()-method 1:get value]-click button to get the text value of RED area.    </li>
+            </ul>
+    </div>
+
+    <div class="layout" id="text2">
+            <div class="topic">.text</div> 
+            <div  class="btn_frame"> <button class="btn">.text</button></div>
+            <ul>
+                <li class="result" ><div class="sample" id="sample_text2" > RED area </div></li>
+                <li class="description"> [text()-method 2:Replace text]-click button to replace text in RED area.    </li>
+            </ul>
+    </div>
+
+    <div class="layout" id="test">
+            <div class="topic">.css</div> 
+            <div  class="btn_frame"> <button class="btn">.css</button></div>
+            <ul>
+                <li class="result" ><div class="sample" id="sample_test" > RED area </div></li>
+                <li class="description"> [text()-method 2:Replace text]-click button to replace text in RED area.    </li>
+            </ul>
+    </div>
+
+
+
+</div>
+</body>
+</html>
